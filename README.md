@@ -18,10 +18,10 @@ print(f"Привет, {name}! Через год тебе будет {age + 1}.")
 a = float(input())
 b = float(input())
 print(f"sum={a + b}", f"avg={format((a + b) / 2, '.2f')}")
-
+---
 ![Код и демонстрация работы](misc/img/lab01/img02.png)
 
----
+
 
 ### Задание 3 — Чек: скидка и НДС
 
