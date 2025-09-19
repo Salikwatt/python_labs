@@ -18,7 +18,7 @@ print(f"Привет, {name}! Через год тебе будет {age + 1}.")
 a = float(input())
 b = float(input())
 print(f"sum={a + b}", f"avg={format((a + b) / 2, '.2f')}")
----
+```
 ![Код и демонстрация работы](misc/img/lab01/img02.png)
 
 
@@ -33,6 +33,7 @@ vat_amount = base * (vat/100)
 total = base + vat_amount
 print(f"База после скидки: {format(base,'.2f')} ₽" ,f"НДС:               {format(vat_amount,'.2f')} ₽", \
       f"Итого к оплате:    {format(total,'.2f')} ₽", sep='\n')
+```
 
 ![Код и демонстрация работы](misc/img/lab01/img03.png)
 
