@@ -52,14 +52,15 @@ print(f"{minute // 60 % 24}:{minute % 60}")
 
 ### Задание 5 — Инициалы и длина строки
 ```py
-s = input()
+s = input().strip()
 fio = s.split()
-print(fio[0][0], fio[1][0], fio[2][0], sep='')
+while '  ' in s:
+    s = s.replace('  ','')
+print(fio[0][0], fio[1][0], fio[2][0], '.', sep='')
 print(f'Длина строки: {len(s)}')
-
 ```
 
-![Код и демонстрация работы](misc/img/lab01/img05.png)
+![Код и демонстрация работы](misc/img/lab01/img005.png)
 
 ---
 
