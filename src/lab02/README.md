@@ -77,7 +77,7 @@ def col_sums(matrix):
         return 'ValueError'
 ```
 
-![Код и демонстрация работы](/misc/img/lab01/in2B3.png)
+![Код и демонстрация работы](misc/img/lab01/In2B3.png)
 
 ---
 
