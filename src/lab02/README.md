@@ -43,7 +43,7 @@ def transpose(matrix):
     else:
         return "ValueError"
 ```
-![Код и демонстрация работы](misc/img/lab01/im2B1.png)
+![Код и демонстрация работы](/misc/img/lab01/im2B1.png)
 
 
 
@@ -60,7 +60,7 @@ def row_sums(matrix):
         return "ValueError"
 ```
 
-![Код и демонстрация работы](misc/img/lab01/IM2B2.png)
+![Код и демонстрация работы](/misc/img/lab01/IM2B2.png)
 
 ---
 
@@ -77,7 +77,7 @@ def col_sums(matrix):
         return 'ValueError'
 ```
 
-![Код и демонстрация работы](misc/img/lab01/in2B3.png)
+![Код и демонстрация работы](/misc/img/lab01/in2B3.png)
 
 ---
 
@@ -104,7 +104,7 @@ def format_record(write):
     return answer
 ```
 
-![Код и демонстрация работы](misc/img/lab01/im2c.png)
+![Код и демонстрация работы](/misc/img/lab01/im2c.png)
 
 ---
 
