@@ -13,7 +13,7 @@ def normalize(text, casefold, repe):
     return new_text
 ```
 
-![Код и демонстрация работы](/src/lab_03/norm.png)
+![Код и демонстрация работы](/src/images/lab03/img01.png)
 
 ---
 
@@ -28,7 +28,7 @@ def token(text):
     answer = [x.strip('-') for x in ''.join(lst).split() if x != '-']
     return answer
 ```
-![Код и демонстрация работы](/src/lab_03/tokens.png)
+![Код и демонстрация работы](src/images/lab03/img02.png)
 
 
 
@@ -42,7 +42,7 @@ def count_freq(tokens):
     return counts
 ```
 
-![Код и демонстрация работы](/src/lab_03/dict.png)
+![Код и демонстрация работы](/src/images/lab03/img03.png)
 
 ---
 
@@ -62,7 +62,7 @@ def top_freq(counts, kol):
     return answer
 ```
 
-![Код и демонстрация работы](/src/lab_03/top.png)
+![Код и демонстрация работы](/src/images/lab03/img04.png)
 
 ---
 
@@ -77,7 +77,7 @@ for i in ex301.top_freq(ex301.count_freq(ex301.token(text)), 3):
     print(i)
 ```
 
-![Код и демонстрация работы](/src/lab_03/ans.png)
+![Код и демонстрация работы](/src/images/lab03/img05.png)
 # ДЗ (lab02)
 
 ### Задание A
@@ -100,7 +100,7 @@ def flatten(matrix):
     return inermatrix
 ```
 
-![Код и демонстрация работы](/misc/img/lab01/im2A.png)
+![Код и демонстрация работы](/src/images/lab02/img01.png)
 
 ---
 
@@ -123,7 +123,7 @@ def transpose(matrix):
     else:
         return "ValueError"
 ```
-![Код и демонстрация работы](/misc/img/lab01/im2B1.png)
+![Код и демонстрация работы](/src/images/lab02/img02.png)
 
 
 
@@ -140,7 +140,7 @@ def row_sums(matrix):
         return "ValueError"
 ```
 
-![Код и демонстрация работы](/misc/img/lab01/IM2B2.png)
+![Код и демонстрация работы](/src/images/lab02/img03.png)
 
 ---
 
@@ -157,7 +157,7 @@ def col_sums(matrix):
         return 'ValueError'
 ```
 
-![Код и демонстрация работы](/misc/img/lab01/In2B3.png)
+![Код и демонстрация работы](/src/images/lab02/img04.png)
 
 ---
 
@@ -183,6 +183,9 @@ def format_record(write):
         return "ValueError"
     return answer
 ```
+
+![Код и демонстрация работы](/src/images/lab02/img05.png)
+
 # ДЗ за 10.09.2025 (lab01)
 
 ### Задание 1 — Привет и возраст
@@ -193,7 +196,7 @@ age = int(input())
 print(f"Привет, {name}! Через год тебе будет {age + 1}.")
 ```
 
-![Код и демонстрация работы](/misc/img/lab01/img01.png)
+![Код и демонстрация работы](/src/images/lab01/img01.png)
 
 ---
 
@@ -204,7 +207,7 @@ a = float(input())
 b = float(input())
 print(f"sum={a + b}", f"avg={format((a + b) / 2, '.2f')}")
 ```
-![Код и демонстрация работы](misc/img/lab01/img02.png)
+![Код и демонстрация работы](/src/images/lab01/img02.png)
 
 
 
@@ -220,7 +223,7 @@ print(f"База после скидки: {format(base,'.2f')} ₽" ,f"НДС:  
       f"Итого к оплате:    {format(total,'.2f')} ₽", sep='\n')
 ```
 
-![Код и демонстрация работы](misc/img/lab01/img03.png)
+![Код и демонстрация работы](/src/images/lab01/img03.png)
 
 ---
 
@@ -231,7 +234,7 @@ minute = int(input())
 print(f"{minute // 60 % 24}:{minute % 60}")
 ```
 
-![Код и демонстрация работы](misc/img/lab01/img04.png)
+![Код и демонстрация работы](/src/images/lab01/img04.png)
 
 ---
 
@@ -245,7 +248,7 @@ print(fio[0][0], fio[1][0], fio[2][0], '.', sep='')
 print(f'Длина строки: {len(s)}')
 ```
 
-![Код и демонстрация работы](misc/img/lab01/img005.png)
+![Код и демонстрация работы](/src/images/lab01/img05.png)
 
 ---
 
@@ -262,7 +265,7 @@ for _ in range(kol):
         k2 += 1
 print(k1, k2)
 
-![Код и демонстрация работы](misc/img/lab01/0.png)
+![Код и демонстрация работы](/src/images/lab01/img06.png)
 
 ---
 
