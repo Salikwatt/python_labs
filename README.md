@@ -264,16 +264,11 @@ for _ in range(kol):
     else:
         k2 += 1
 print(k1, k2)
-
----
+```
 
 ![Код и демонстрация работы](/src/images/lab01/img06.png)
 
-```
-
-
-![Код и демонстрация работы](/misc/img/lab01/im2c.png)
-
 ---
+
 
 
