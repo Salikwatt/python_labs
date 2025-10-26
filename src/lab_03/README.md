@@ -30,7 +30,7 @@ def token(text):
 ```
 ![Код и демонстрация работы](src/images/lab03/img02.png)
 
-
+---
 
 ### Задание A count_freq
 
