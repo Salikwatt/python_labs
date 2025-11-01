@@ -1,4 +1,38 @@
-# ДЗ (lab03)
+```py
+import csv # библиотека для работы с csv
+from pathlib import Path # библиотека для получения правильно пути
+from typing import Iterable, Sequence # для типизации
+import os # библиотека для работы с системой
+
+def read_text(path: str | Path, encoding: str = "utf-8") -> str:
+    if os.path.exists(path) == 0: # проверка на существование пути
+        return 'FileNotFoundError'
+    p = Path(path)
+    try:
+        p.read_text(encoding=encoding) # проверка на неправильную кодировку
+    except UnicodeDecodeError: # except ловит ошибки и выводит
+        return "UnicodeDecodeError"
+    return p.read_text(encoding=encoding)
+# Если пользователя нужно выбрать другую кодировку,то ее нужно написать строкой как второй аргумент функции
+
+def write_csv(rows: Iterable[Sequence], path: str | Path,
+              header: tuple[str, ...] | None = None) -> None:
+    p = Path(path)
+    rows = list(rows)
+    if len([1 for x in rows if len(x[0]) == len(rows[0][0])]) != len(rows): # Проверка на равную длину строк
+        return 'ValueError'
+    with p.open("w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        if header is not None:
+            w.writerow(header)
+        for r in rows:
+            w.writerow(r)
+
+txt = read_text("C:/Users/user/python_labs/python_labs/src/lab04/input.txt")  # должен вернуть строку
+print(txt)
+write_csv([("word","count"),("test",3)], "src/lab04/check.csv")  # создаст CSV#
+```
+ДЗ (lab03)
 
 ### Задание A normalize
 
