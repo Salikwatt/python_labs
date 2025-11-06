@@ -3,7 +3,7 @@
 ### Задание A — модуль src/lab05/csv_json.py
 ![Код и демонстрация работы](/src/images/lab05/image1.png)
 
-![Код и демонстрация работы](/src/images/lab05/imag8.png)
+![Код и демонстрация работы](/src/images/lab05/imag3.png)
 
 ![Код и демонстрация работы](/src/images/lab05/imag4.png)
 
