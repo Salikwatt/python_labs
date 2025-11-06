@@ -1,3 +1,22 @@
+# ДЗ (lab04)
+
+### Задание A — модуль src/lab04/io_txt_csv.py
+![Код и демонстрация работы](/src/images/lab04/image01.png)
+
+![Код и демонстрация работы](/src/images/lab04/image02.png)
+
+![Код и демонстрация работы](/src/images/lab04/image04.png)
+
+![Код и демонстрация работы](/src/images/lab04/image03.png)
+
+---
+
+### Задание B – src/lab04/text_report.py
+
+![Код и демонстрация работы](/src/images/lab04/image06.png)
+
+![Код и демонстрация работы](/src/images/lab04/image05.png)
+
 # ДЗ (lab03)
 
 ### Задание A normalize
