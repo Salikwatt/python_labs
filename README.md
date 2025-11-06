@@ -14,7 +14,7 @@
 ![Код и демонстрация работы](/src/images/lab05/imag8.png)
 
 ---
-### Задание B – src/lab04/text_report.py
+### Задание B – src/lab05/csv_xlsx.py
 
 ![Код и демонстрация работы](/src/images/lab05/imag10.png)
 
