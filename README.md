@@ -1,7 +1,7 @@
 # ДЗ (lab05)
 
 ### Задание A — модуль src/lab05/csv_json.py
-![Код и демонстрация работы](/src/images/lab05/image01.png)
+![Код и демонстрация работы](/src/images/lab05/image1.png)
 
 ![Код и демонстрация работы](/src/images/lab05/imag8.png)
 
