@@ -1,3 +1,21 @@
+# ДЗ (lab05)
+
+### Задание A — модуль src/lab05/csv_json.py
+![Код и демонстрация работы](/src/images/lab05/image01.png)
+
+![Код и демонстрация работы](/src/images/lab05/image02.png)
+
+![Код и демонстрация работы](/src/images/lab05/image04.png)
+
+![Код и демонстрация работы](/src/images/lab05/image03.png)
+
+---
+### Задание B – src/lab04/text_report.py
+
+![Код и демонстрация работы](/src/images/lab05/image06.png)
+
+![Код и демонстрация работы](/src/images/lab05/image05.png)
+
 # ДЗ (lab04)
 
 ### Задание A — модуль src/lab04/io_txt_csv.py
