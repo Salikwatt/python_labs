@@ -25,7 +25,7 @@
 # ДЗ (lab04)
 
 ### Задание A — модуль src/lab04/io_txt_csv.py
-![Код и демонстрация работы](/src/images/lab04/image01.png)
+![Код и демонстрация работы](/src/images/lab04/image_3.png)
 
 ![Код и демонстрация работы](/src/images/lab04/image02.png)
 
