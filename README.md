@@ -1,3 +1,41 @@
+# ДЗ (lab06)
+
+### Задание A — модуль src/lab06/cli_text.py
+![Код и демонстрация работы](/src/lab06/cli_text.py)
+
+![Код и демонстрация работы](/ src/images/lab06/img01.png)
+
+![Код и демонстрация работы](/ src/images/lab06/img02.png)
+
+![Код и демонстрация работы](/ src/images/lab06/img03.png)
+
+![Код и демонстрация работы](/ src/images/lab06/img04.png)
+
+---
+
+### Задание B – src/lab06/cli_convert.py
+
+![Код и демонстрация работы](/src/lab06/cli_text.py)
+
+![Код и демонстрация работы](/src/images/lab06/img05.png)
+
+![Код и демонстрация работы](/src/images/lab06/img06.png)
+
+![Код и демонстрация работы](/src/images/lab06/img07.png)
+
+![Код и демонстрация работы](/src/images/lab06/img08.png)
+
+![Код и демонстрация работы](/src/images/lab06/img09.png)
+
+![Код и демонстрация работы](/src/images/lab06/img10.png)
+
+![Код и демонстрация работы](/src/images/lab06/img11.png)
+
+![Код и демонстрация работы](/src/images/lab06/img12.png)
+
+![Код и демонстрация работы](/src/images/lab06/img13.png)
+
+
 # ДЗ (lab05)
 
 ### Задание A — модуль src/lab05/csv_json.py
