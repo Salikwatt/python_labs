@@ -1,7 +1,7 @@
 # ДЗ (lab06)
 
 ### Задание A — модуль src/lab06/cli_text.py
-![Код и демонстрация работы](/src/lab06/cli_text.py)
+![Код и демонстрация работы](src/lab06/cli_text.py)
 
 ![Код и демонстрация работы](/src/images/lab06/img01.png)
 
