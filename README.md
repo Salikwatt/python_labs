@@ -1,3 +1,186 @@
+# ДЗ (lab07)
+
+### A. Тесты для src/lib/text.py
+```py
+import sys
+sys.path.append(r'src\lib')
+from text import normalize, tokenize, count_freq, top_freq
+import pytest
+
+@pytest.mark.parametrize("input, expected", [('HelLo WoRld', 'hello world'), ('Mr    Smit', 'mr smit'),
+                                              ('co\tde\n\r', 'co de'), ('Ёлка', 'елка'),
+                                              ('HЁllo   w\noRld!!!!', 'hеllo w orld!!!!'), ('' , '')])
+def test_normalize(input, expected):
+    assert normalize(input) == expected
+
+@pytest.mark.parametrize("input, expected", [("hello,world!!!", ["hello", "world"]), ("emoji 😀 не слово", ["emoji", "не", "слово"])])
+def test_tokenize(input, expected):
+    assert tokenize(input) == expected
+
+@pytest.mark.parametrize("input, expected", [(["a","b","a","c","b","a"], {"a":3,"b":2,"c":1}), (["bb","aa","bb","aa","cc"], {"aa":2,"bb":2,"cc":1})])
+def test_count_freq(input, expected):
+    assert count_freq(input) == expected
+
+@pytest.mark.parametrize("input, expected", [({"a":3,"b":2,"c":1}, [("a",3), ("b",2)]), ({"aa":2,"bb":2,"cc":1}, [("aa",2), ("bb",2)])])
+def test_top_freq(input, expected):
+    assert top_freq(input, 2) == expected
+```
+
+![Код и демонстрация работы](/src/lab_03/norm.png)
+![Код и демонстрация работы](/src/lab_03/norm.png)
+![Код и демонстрация работы](/src/lab_03/norm.png)
+---
+
+### Задание B. Тесты для src/lab05/json_csv.py
+```py
+import sys
+import json
+sys.path.append(r'src\lab05')
+from json_csv import json_to_csv, csv_to_json
+sys.path.append(r'src\lab04')
+from io_txt_csv import read_text
+import pytest
+
+@pytest.mark.parametrize('json_path, expected', [(r'date\lab05\input.json', 'ValueError'),
+                                                 ('', 'FileNotFoundError'),
+                                                 (r'date\lab05\kirillica.json', 'ValueError')])
+def test_json_to_csv(json_path, expected):
+    try:
+        json_to_csv(json_path, r'date\lab05\check.csv')
+    except ValueError:
+        assert 'ValueError' == expected
+    except FileNotFoundError:
+        assert 'FileNotFoundError' == expected
+    else:
+        with open(json_path, "r", encoding = 'UTF-8') as file:
+            data = json.load(file)
+        data = [x for x in data.items()]
+        csv_data = read_text(r'date\lab05\check.csv').strip('\n').split('\n')
+        csv_data = [tuple(x.split(',')) for x in csv_data]
+        assert csv_data == data
+
+@pytest.mark.parametrize('csv_path, expected',[('', 'FileNotFoundError')])
+def test_csv_to_json(csv_path, expected):
+    try:
+        csv_to_json(csv_path, r'data\test.json')
+    except FileNotFoundError:
+        assert 'FileNotFoundError' == expected
+    else:
+        with open(r'data\test.json', "r", encoding = 'UTF-8') as file:
+            data = json.load(file)
+        data = [x for x in data.items()]
+        csv_data = read_text(r'date\lab05\check.csv').strip('\n').split('\n')
+        csv_data = [tuple(x.split(',')) for x in csv_data]
+        assert csv_data == data
+```
+![Код и демонстрация работы](/src/lab_03/tokens.png)
+![Код и демонстрация работы](/src/lab_03/tokens.png)
+![Код и демонстрация работы](/src/lab_03/tokens.png)
+
+
+
+### Задание C Black
+
+```py
+import sys
+
+sys.path.append(r"src\lib")
+from text import normalize, tokenize, count_freq, top_freq
+import pytest
+
+@pytest.mark.parametrize(
+    "input, expected",
+    [
+        ("HelLo WoRld", "hello world"),
+        ("Mr    Smit", "mr smit"),
+        ("co\tde\n\r", "co de"),
+        ("Ёлка", "елка"),
+        ("HЁllo   w\noRld!!!!", "hеllo w orld!!!!"),
+        ("", ""),
+    ],
+)
+def test_normalize(input, expected):
+    assert normalize(input) == expected
+
+@pytest.mark.parametrize(
+    "input, expected",
+    [
+        ("hello,world!!!", ["hello", "world"]),
+        ("emoji 😀 не слово", ["emoji", "не", "слово"]),
+    ],
+)
+def test_tokenize(input, expected):
+    assert tokenize(input) == expected
+
+@pytest.mark.parametrize(
+    "input, expected",
+    [
+        (["a", "b", "a", "c", "b", "a"], {"a": 3, "b": 2, "c": 1}),
+        (["bb", "aa", "bb", "aa", "cc"], {"aa": 2, "bb": 2, "cc": 1}),
+    ],
+)
+def test_count_freq(input, expected):
+    assert count_freq(input) == expected
+
+@pytest.mark.parametrize(
+    "input, expected",
+    [
+        ({"a": 3, "b": 2, "c": 1}, [("a", 3), ("b", 2)]),
+        ({"aa": 2, "bb": 2, "cc": 1}, [("aa", 2), ("bb", 2)]),
+    ],
+)
+def test_top_freq(input, expected):
+    assert top_freq(input, 2) == expected
+```
+```py
+import sys
+import json
+
+sys.path.append(r"src\lab05")
+from json_csv import json_to_csv, csv_to_json
+
+sys.path.append(r"src\lab04")
+from io_txt_csv import read_text
+import pytest
+
+@pytest.mark.parametrize(
+    "json_path, expected",
+    [
+        (r"date\lab05\input.json", "ValueError"),
+        ("", "FileNotFoundError"),
+        (r"date\lab05\kirillica.json", "ValueError"),
+    ],
+)
+def test_json_to_csv(json_path, expected):
+    try:
+        json_to_csv(json_path, r"date\lab05\check.csv")
+    except ValueError:
+        assert "ValueError" == expected
+    except FileNotFoundError:
+        assert "FileNotFoundError" == expected
+    else:
+        with open(json_path, "r", encoding="UTF-8") as file:
+            data = json.load(file)
+        data = [x for x in data.items()]
+        csv_data = read_text(r"date\lab05\check.csv").strip("\n").split("\n")
+        csv_data = [tuple(x.split(",")) for x in csv_data]
+        assert csv_data == data
+
+@pytest.mark.parametrize("csv_path, expected", [("", "FileNotFoundError")])
+def test_csv_to_json(csv_path, expected):
+    try:
+        csv_to_json(csv_path, r"data\test.json")
+    except FileNotFoundError:
+        assert "FileNotFoundError" == expected
+    else:
+        with open(r"data\test.json", "r", encoding="UTF-8") as file:
+            data = json.load(file)
+        data = [x for x in data.items()]
+        csv_data = read_text(r"date\lab05\check.csv").strip("\n").split("\n")
+        csv_data = [tuple(x.split(",")) for x in csv_data]
+        assert csv_data == data
+
+```
 # ДЗ (lab06)
 
 ### Задание A — модуль src/lab06/cli_text.py
