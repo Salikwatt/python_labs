@@ -26,9 +26,7 @@ def test_top_freq(input, expected):
     assert top_freq(input, 2) == expected
 ```
 
-![Код и демонстрация работы](/src/lab_03/norm.png)
-![Код и демонстрация работы](/src/lab_03/norm.png)
-![Код и демонстрация работы](/src/lab_03/norm.png)
+![Код и демонстрация работы](/src/images/lab07/im001.png)
 ---
 
 ### Задание B. Тесты для src/lab05/json_csv.py
@@ -73,11 +71,10 @@ def test_csv_to_json(csv_path, expected):
         csv_data = [tuple(x.split(',')) for x in csv_data]
         assert csv_data == data
 ```
-![Код и демонстрация работы](/src/lab_03/tokens.png)
-![Код и демонстрация работы](/src/lab_03/tokens.png)
-![Код и демонстрация работы](/src/lab_03/tokens.png)
-
-
+![Код и демонстрация работы](/src/images/lab07/im002.png)
+![Код и демонстрация работы](/src/images/lab07/im003.png)
+![Код и демонстрация работы](/src/images/lab07/im004.png)
+![Код и демонстрация работы](/src/images/lab07/im005.png)
 
 ### Задание C Black
 
