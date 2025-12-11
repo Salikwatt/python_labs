@@ -1,3 +1,87 @@
+# ДЗ (lab08)
+
+### A. models.py
+```py
+from datetime import *
+from dataclasses import dataclass
+
+@dataclass
+class Student:
+    fio: str
+    birthdate: str
+    group: str
+    gpa: float
+
+    def __post_init__(self):
+        if isinstance(self.gpa, float) == 0:
+            raise ValueError('Неправильный формат среднего балла')
+        try:
+            datetime.strptime(self.birthdate, "%Y/%m/%d")
+        except ValueError:
+            raise ValueError('Неправильный формат времени')
+        
+        if not (0 <= self.gpa <= 5):
+            raise ValueError("gpa must be between 0 and 10")
+
+    def age(self) -> int:
+        b = datetime.strptime(self.birthdate, "%Y/%m/%d")
+        today = date.today()
+        if b.month > today.month or b.month == today.month and b.day > today.day:
+            return today.year - b.year - 1
+        return today.year - b.year
+
+    def to_dict(self) -> dict:
+        if len(self.birthdate) == 0 or len(self.group) == 0 or len(self.fio) == 0:
+            raise ValueError('Пустое поле')
+        return {
+            "fio": self.fio,
+            "birthdate": self.birthdate,
+            "group": self.group,
+            "gpa": self.gpa,
+        }
+
+    @classmethod
+    def from_dict(cls, d: dict):
+        return cls(
+            fio = d["fio"],
+            birthdate = d["birthdate"],
+            group = d["group"],
+            gpa= d ["gpa"]
+        )
+    def __str__(self):
+        return f"{self.fio}, {self.group}, GPA: {self.gpa:.2f}, возраст: {self.age()} лет"
+```
+
+![Код и демонстрация работы](/src/images/lab08/img8_01.png)
+![Код и демонстрация работы](/src/images/lab08/img8_02.png)
+---
+
+### Задание B. serialize.py
+```py
+import json
+from models import Student
+def students_to_json(students, path):
+    with open(path, 'w', encoding='utf-8') as json_file:
+        data = [s.to_dict() for s in students]
+        json.dump(data, json_file, ensure_ascii=False, indent=2)
+def students_from_json(path) -> dict:
+    try:
+        with open(path, 'r', encoding = 'utf-8') as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        raise FileNotFoundError(f"Файл {path} не найден")
+    except json.JSONDecodeError:
+        raise ValueError(f"Файл {path} содержит некорректный JSON")
+    if not isinstance(data, list):
+        raise ValueError("JSON должен содержать массив объектов")
+    with open(path, 'r', encoding='utf-8') as file:
+        return list(json.load(file))
+```
+![Код и демонстрация работы](/src/images/lab08/img8_03.png)
+![Код и демонстрация работы](/src/images/lab08/img8_04.png)
+![Код и демонстрация работы](/src/images/lab08/img8_05.png)
+![Код и демонстрация работы](/src/images/lab08/img8_06.png)
+
 # ДЗ (lab07)
 
 ### A. Тесты для src/lib/text.py
