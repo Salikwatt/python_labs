@@ -1,3 +1,99 @@
+# ДЗ (lab09)
+
+### src/lab09/group.py
+```py
+import csv
+from pathlib import Path
+import sys
+sys.path.append(r'src\lab08')
+sys.path.append(r'src\lab04')
+from models import Student
+from io_txt_csv import read_text
+
+class Group:
+    def __init__(self, storage_path: str):
+        self.path = Path(storage_path)
+        if not self.path.exists():
+            self.path.write_text("", encoding="utf-8") 
+    def read_all(self):
+        s = read_text(self.path).split('\n')
+        s = [x.split(',') for x in s]
+        return s
+
+    def list(self):
+        Students = []
+        s = self.read_all()
+        if s[0] != ['fio', 'birthdate', 'group', 'gpa']:
+            raise ValueError('Неправильные загаловки')
+        else:
+            s = [x for x in s if x != ['']]
+            for index in range(1, len(s)):
+                try:
+                    student = Student(s[index][0], s[index][1], s[index][2],  float(s[index][3]))
+                except ValueError:
+                    raise ValueError('Неправильный формат строки')
+                except IndexError:
+                    raise IndexError('Не все поля заполнены')
+                Students.append(s[index][0])
+        return Students
+    def add(self, student: Student):
+        with self.path.open("a", newline='', encoding='utf-8') as file:
+            w = csv.writer(file)
+            w.writerow((student.fio, student.birthdate, student.group, student.gpa))
+
+    def find(self, substr: str):
+        s = self.read_all()
+        rows = [{'fio': x[0],'birthdate': x[1],'group': x[2],'gpa': float(x[3])} for x in s[1:] if x != ['']]
+        return [r for r in rows if substr in r["fio"]] 
+
+    def remove(self, fio: str):
+        s = self.read_all()
+        rows = [{'fio': x[0],'birthdate': x[1],'group': x[2],'gpa': float(x[3])} for x in s[1:] if x != ['']]
+        for i, r in enumerate(rows):
+            if r["fio"] == fio:
+                rows.pop(i)
+                break
+        with self.path.open("w", newline='', encoding='utf-8') as file:
+            w = csv.writer(file)
+            w.writerow(['fio', 'birthdate', 'group', 'gpa'])
+        for i in rows:
+            date_student = [x for x in i.values()]
+            student = Student(date_student[0], date_student[1], date_student[2], date_student[3])
+            self.add(student)
+    def update(self, fio: str, **fields):
+        s = self.find(fio)[0]
+        self.remove(fio)
+        for i in fields.keys():
+            s[i] = fields[i]
+        student = Student(s['fio'], s['birthdate'], s['group'], s['gpa'])
+        self.add(student)
+```
+### Добавление
+
+![Код и демонстрация работы](/src/images/lab09/img9_1.png)
+![Код и демонстрация работы](/src/images/lab09/img9_2.png)
+![Код и демонстрация работы](/src/images/lab09/img9_3.png)
+
+### Список
+![Код и демонстрация работы](/src/images/lab09/img9_3.png)
+![Код и демонстрация работы](/src/images/lab09/img9_4.png)
+![Код и демонстрация работы](/src/images/lab09/img9_5.png)
+
+### Поиск
+![Код и демонстрация работы](/src/images/lab09/img9_3.png)
+![Код и демонстрация работы](/src/images/lab09/img9_6.png)
+![Код и демонстрация работы](/src/images/lab09/img9_7.png)
+
+### Удаление
+![Код и демонстрация работы](/src/images/lab09/img9_3.png)
+![Код и демонстрация работы](/src/images/lab09/img9_8.png)
+![Код и демонстрация работы](/src/images/lab09/img9_9.png)
+
+### Обновление
+![Код и демонстрация работы](/src/images/lab09/img9_3.png)
+![Код и демонстрация работы](/src/images/lab09/img9_10.png)
+![Код и демонстрация работы](/src/images/lab09/img9_11.png)
+
 # ДЗ (lab08)
 
 ### A. models.py
