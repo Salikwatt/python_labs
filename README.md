@@ -95,7 +95,7 @@ class Queue:
 ![Код и демонстрация работы](/src/images/lab10/img101.png)
 ![Код и демонстрация работы](/src/images/lab10/img102.png)
 ![Код и демонстрация работы](/src/images/lab10/img103.png)
-![Код и демонстрация работы](/ssrc/images/lab10/img104.png)
+![Код и демонстрация работы](/src/images/lab10/img104.png)
 
 ---
 
