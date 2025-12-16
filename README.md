@@ -92,10 +92,10 @@ class Queue:
         return False
 ```
 
-![Код и демонстрация работы](/src/lab_03/norm.png)
-![Код и демонстрация работы](/src/lab_03/norm.png)
-![Код и демонстрация работы](/src/lab_03/norm.png)
-![Код и демонстрация работы](/src/lab_03/norm.png)
+![Код и демонстрация работы](/src/images/lab10/img101.png)
+![Код и демонстрация работы](/src/images/lab10/img102.png)
+![Код и демонстрация работы](/src/images/lab10/img103.png)
+![Код и демонстрация работы](/ssrc/images/lab10/img104.png)
 
 ---
 
@@ -160,8 +160,8 @@ class SinglyLinkedList:
             n = n.next
         return s
 ```
-![Код и демонстрация работы](/src/lab_03/tokens.png)
-![Код и демонстрация работы](/src/lab_03/tokens.png)
+![Код и демонстрация работы](/src/images/lab10/img105.png)
+![Код и демонстрация работы](/src/images/lab10/img106.png)
 
 # ДЗ (lab09)
 
