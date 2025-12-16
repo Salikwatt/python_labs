@@ -1,3 +1,168 @@
+# ДЗ (lab10)
+
+## Теория
+
+### Стек
+
+Стек в программировании сравним с ящиком в реальной жизни, пока не достанешь сверху не имеешь доступ ниже.
+Методы:
+	Pop() - достать сверху и удалить
+	Peek() - достать сверху и сохранить
+	Push() - положить сверху
+Прост в реализации.
+
+### Очередь
+
+Очередь – набор данных в котором есть доступ к началу и концу.
+Методы:
+	dequeue() – достать с начала
+    peek() – достать с начала и сохранить
+	enqueue()- добавить в конец
+Проста в реализации.
+
+### Односвязный список 
+
+Односвязный список – набор данных, у каждого элемента, которого есть ссылка на следующий.
+Методы:
+	append() – добавить в конец
+    prepand() – добавить в начало
+	remove()- удалить первое вхождение в список
+	insert()- вставить по индексу
+Более сложная структура в реализации и понимании.
+
+
+### A. src/lab10/structures.py
+
+```py
+from collections import deque
+
+class Stack:
+    def __init__(self, _data):
+        if isinstance(_data, list) == 1:
+            self._data = _data
+        else:
+            raise TypeError('На вход нужен список')
+    def push(self, item):
+        self._data.append(item)
+    def pop(self):
+        try:
+            element = self._data[-1]
+            self._data = self._data[:-1]
+        except IndexError:
+            raise IndexError('Пустой стек')
+        return element
+    def peek(self):
+        try:
+            element = self._data[-1]
+        except IndexError:
+            raise IndexError('Пустой стек')
+        return element
+    def is_empty(self):
+        if len(self._data) == 0:
+            return True
+        return False
+
+class Queue:
+
+    def __init__(self, _data):
+        if isinstance(_data, list) == 1:
+            self._data = deque(_data)
+        else:
+            raise TypeError('На вход нужен список')
+        
+    def enqueue(self, item):
+        self._data.append(item)
+    
+    def dequeue(self):
+        try:
+            element = self._data.popleft()
+        except IndexError:
+            raise IndexError('Пустая очередь')
+        return element
+    def peek(self):
+        try:
+            element = self._data.popleft()
+            self._data.appendleft(element)
+        except IndexError:
+            raise IndexError('Пустая очередь')
+        return element
+    def is_empty(self):
+        if len(self._data) == 0:
+            return True
+        return False
+```
+
+![Код и демонстрация работы](/src/lab_03/norm.png)
+![Код и демонстрация работы](/src/lab_03/norm.png)
+![Код и демонстрация работы](/src/lab_03/norm.png)
+![Код и демонстрация работы](/src/lab_03/norm.png)
+
+---
+
+### Задание B. Src/lab10/linkedlist
+```py
+class Node:
+    def __init__(self, data=None):
+        self.data = data
+        self.next = None
+    def append(self, val):
+        end = Node(val)
+        n = self
+        while (n.next):
+            n = n.next
+        n.next = end
+
+class SinglyLinkedList:
+    def __init__(self, size, head=None, tail=None):
+        self.head = head
+        self.tail = tail
+        self.size = size
+    def append(self, value):
+        end = Node(value)
+        self.tail.next = end
+        self.tail = end
+        self.size += 1
+    def prepand(self, value):
+        start = Node(value)
+        start.next = self.head
+        self.head = start
+        self.size += 1
+    def remove(self, value):
+        n = self.head
+        while n.next.data != value:
+            n = n.next
+        else:
+            n.next = n.next.next
+            self.size -= 1
+    def __len__(self):
+        return self.size
+    def insert(self, idx, value):
+        n = self.head
+        node = Node(value)
+        if isinstance(idx, int) == 0:
+            raise ValueError('Индекс целое число')
+        if 0 < idx < self.size:
+            for _ in range(idx - 1):
+                n = n.next
+            next = n.next
+            n.next = node
+            node.next = next
+            self.size += 1
+        elif idx == 0:
+            self.prepand(value)
+        elif idx == self.size:
+            self.append(value)
+    def __repr__(self):
+        s = []
+        n = self.head
+        for i in range(self.size):
+            s.insert(i, n.data)
+            n = n.next
+        return s
+```
+![Код и демонстрация работы](/src/lab_03/tokens.png)
+![Код и демонстрация работы](/src/lab_03/tokens.png)
+
 # ДЗ (lab09)
 
 ### src/lab09/group.py
